@@ -9,10 +9,10 @@ Multiple regression models were trained, tuned, and evaluated, followed by an ad
 HOUSE_PRICE_PREDICTION/
 │
 ├── datasets/
-│ └── boston_dataset.csv (main dataset)
-│ └── boston_cleaned.csv (after log transformation for EDA)
-│ └── final_boston.csv   (nan free dataset for model training)
-│ └── trails.csv         (optuna study trials data for final evaluation)
+│ └── boston_dataset.csv 
+│ └── boston_cleaned.csv 
+│ └── final_boston.csv   
+│ └── trails.csv         
 │
 ├── models/
 │ └── stacking_model.pkl
@@ -126,5 +126,5 @@ The stacking model achieved the best performance with the highest R² score
 This project demonstrates a complete machine learning workflow for regression problems, highlighting the effectiveness of stacking techniques in improving predictive performance
 
 ## Author
-Chirag Poojary
+### Chirag Poojary
 Machine Learning Project – House Price Prediction
