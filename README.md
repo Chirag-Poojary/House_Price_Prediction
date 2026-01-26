@@ -5,29 +5,29 @@ Multiple regression models were trained, tuned, and evaluated, followed by an ad
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 HOUSE_PRICE_PREDICTION/
 │
 ├── datasets/
-│ └── boston_dataset.csv 
-│ └── boston_cleaned.csv 
-│ └── final_boston.csv   
-│ └── trails.csv         
+│ ├── boston_dataset.csv      # Original raw dataset
+│ ├── boston_cleaned.csv      # Cleaned dataset after preprocessing
+│ ├── final_boston.csv        # Final dataset used for modeling
+│ └── trials.csv              # Optuna trial results
 │
 ├── models/
-│ └── stacking_model.pkl
+│ └── stacking_model.pkl      # Final trained stacking model
 │
-├── data_understanding.ipynb
-├── eda.ipynb
-├── cleaning.ipynb
-├── feature_engineering.ipynb
-├── modeling_baseline.ipynb
-├── optuna_tuning.ipynb
-├── ensembles_stacking.ipynb
-├── final_evaluation.ipynb
+├── data_understanding.ipynb  # Dataset overview and column explanations
+├── eda.ipynb                 # Exploratory data analysis and insights
+├── cleaning.ipynb            # Data cleaning and outlier handling
+├── feature_engineering.ipynb # Feature transformations and selection
+├── modeling_baseline.ipynb   # Baseline regression models
+├── optuna_tuning.ipynb       # Hyperparameter tuning using Optuna
+├── ensembles_stacking.ipynb  # Ensemble and stacking model training
+├── final_evaluation.ipynb    # Final evaluation, plots, and metrics
 │
-├── requirements.txt
-└── README.md
+├── requirements.txt          # Project dependencies
+└── README.md                 # Project documentation
 
 ---
 
@@ -68,7 +68,7 @@ HOUSE_PRICE_PREDICTION/
 - Feature vs target relationships
 - Multicollinearity checks
 
-### 5️ Baseline Modeling
+### 4 Baseline Modeling
 Trained initial regression models:
 - Linear Regression
 - Ridge Regression
