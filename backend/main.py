@@ -1,26 +1,37 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-from backend.model_loader import predict_price
+from fastapi.responses import JSONResponse
+import joblib
+from schema.house_features import HouseFeatures
 
-app = FastAPI(title="House Price Prediction API")
+with open('../models/stacking_model.pkl', 'rb') as f:
+    model = joblib.load(f)
 
-class HouseFeatures(BaseModel):
-    CRIM: float
-    ZN: float
-    INDUS: float
-    CHAS: int
-    NOX: float
-    RM: float
-    AGE: float
-    DIS: float
-    RAD: int
-    TAX: float
-    PTRATIO: float
-    B: float
-    LSTAT: float
+MODEL_VERSION = '1.0.0'
+
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Boston Housing Price Prediction API"}
+
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "version": MODEL_VERSION,
+        "model_loaded": model is not None
+    }
 
 @app.post("/predict")
 def predict(features: HouseFeatures):
-    feature_values = list(features.values())
-    prediction = predict_price(feature_values)
-    return {"predicted_price": prediction}
+    # Convert features to a list for model prediction
+    feature_list = [
+        features.CRIM, features.ZN, features.INDUS, features.CHAS, features.NOX,
+        features.RM, features.AGE, features.DIS, features.RAD, features.TAX,
+        features.PTRATIO, features.B, features.LSTAT
+    ]
+    # Make prediction using the loaded model
+    prediction = model.predict([feature_list])[0]
+    return JSONResponse(status_code=200, content={"predicted_price": float(prediction)})
+

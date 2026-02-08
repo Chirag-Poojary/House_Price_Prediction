@@ -1,0 +1,15 @@
+from pydantic import BaseModel, Field
+class HouseFeatures(BaseModel):
+    CRIM: float = Field(..., description="Per capita crime rate by town")
+    ZN: float = Field(..., description="Proportion of residential land zoned for lots over 25,000 sq.ft.")
+    INDUS: float = Field(..., description="Proportion of non-retail business acres per town")
+    CHAS: int = Field(..., description="Charles River dummy variable (1 if tract bounds river; 0 otherwise)")
+    NOX: float = Field(..., description="Nitric oxides concentration (parts per 10 million)")
+    RM: float = Field(..., description="Average number of rooms per dwelling")
+    AGE: float = Field(..., description="Proportion of owner-occupied units built prior to 1940")
+    DIS: float = Field(..., description="Weighted distances to five Boston employment centers")
+    RAD: int = Field(..., description="Index of accessibility to radial highways")
+    TAX: float = Field(..., description="Full-value property tax rate per $10,000")
+    PTRATIO: float = Field(..., description="Pupil-teacher ratio by town")
+    B: float = Field(..., description="1000(Bk - 0.63)^2 where Bk is the proportion of Blacks by town") 
+    LSTAT: float = Field(..., description="Percentage of lower status population")
